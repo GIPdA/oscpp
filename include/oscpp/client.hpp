@@ -285,6 +285,27 @@ public:
         return *this;
     }
 
+    Packet& boolean(bool arg)
+    {
+    	if (arg)
+    		m_tags.putChar('T');
+    	else
+    		m_tags.putChar('F');
+        return *this;
+    }
+
+    Packet& infinitum()
+    {
+        m_tags.putChar('I');
+        return *this;
+    }
+
+    Packet& nil()
+    {
+        m_tags.putChar('N');
+        return *this;
+    }
+
     template <typename T> Packet& put(T)
     {
         T::OSC_Client_Packet_put_unimplemented;
