@@ -75,6 +75,9 @@
 
 #    define OSCPP_LITTLE_ENDIAN
 #    define OSCPP_BYTE_ORDER OSCPP_BYTE_ORDER_LITTLE_ENDIAN
+#elif defined(CPU_MIMXRT1021DAG5A)
+#    define OSCPP_LITTLE_ENDIAN
+#    define OSCPP_BYTE_ORDER OSCPP_BYTE_ORDER_LITTLE_ENDIAN
 #else
 #    error The file oscpp/endian.hpp needs to be set up for your CPU type.
 #endif
