@@ -179,6 +179,30 @@ public:
         }
     }
 
+    //! Get next boolean argument.
+    /*!
+     * Read next boolean argument from the input stream.
+     *
+     * \exception OSCPP::UnderrunError stream buffer underrun.
+     * \exception OSCPP::ParseError argument is not a boolean.
+     */
+    bool boolean()
+    {
+        const char t = m_tags.getChar();
+        if (t == 'T')
+            return true;
+        if (t == 'F')
+            return false;
+        throw ParseError("Cannot convert argument to bool");
+    }
+    bool isBoolean() const {
+    	switch (tag()) {
+    	case 'T': return true;
+    	case 'F': return true;
+    	default:  return false;
+    	}
+    }
+
     //* Return a stream corresponding to an array argument.
     ArgStream array()
     {
