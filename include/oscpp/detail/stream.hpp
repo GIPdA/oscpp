@@ -112,6 +112,11 @@ public:
         m_pos += n;
     }
 
+    void advanceEnd(size_t n)
+    {
+        m_end += n;
+    }
+
     bool atEnd() const
     {
         return pos() == end();

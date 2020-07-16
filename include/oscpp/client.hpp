@@ -209,6 +209,12 @@ public:
         return *this;
     }
 
+    void addTags(size_t numTags)
+    {
+    	m_tags.advanceEnd(numTags);
+    	m_args.zero(align(numTags));
+    }
+
     Packet& closeMessage()
     {
         if (m_inBundle > 0)
