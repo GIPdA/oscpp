@@ -209,10 +209,12 @@ public:
         return *this;
     }
 
+    // Add capacity for 'numTags' tags. Do not call after writing data.
     void addTags(size_t numTags)
     {
+    	size_t const tags = m_tags.capacity();
     	m_tags.advanceEnd(numTags);
-    	m_args.zero(align(numTags));
+    	m_args.zero(align(tags+numTags) - align(tags));
     }
 
     Packet& closeMessage()
